@@ -1,0 +1,143 @@
+:root {
+    --dark-blue: #0f172a;
+    --light-blue: #0ea5e9;
+    --navy: #1e293b;
+    --sky: #0ea5e9;
+    --glass-bg: rgba(30, 41, 59, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+body {
+    background-color: var(--dark-blue);
+    color: #f1f5f9;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+.font-outfit {
+    font-family: 'Outfit', sans-serif;
+}
+
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+}
+
+.blue-gradient {
+    background: linear-gradient(135deg, #0f172a 0%, #172554 100%);
+}
+
+.page-content {
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.page-content.active {
+    display: block;
+    animation: slideUpFade 0.6s ease-out forwards;
+}
+
+@keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.nav-link {
+    position: relative;
+    color: #94a3b8;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--sky);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.nav-link.active {
+    color: var(--sky);
+}
+
+/* Blossom Flower Animation Styles */
+#blossom-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 5;
+    overflow: hidden;
+}
+
+.flower {
+    position: absolute;
+    fill: #0ea5e9;
+    filter: drop-shadow(0 0 10px rgba(14, 165, 233, 0.4));
+    opacity: 0;
+    animation: blossom-float linear infinite;
+}
+
+@keyframes blossom-float {
+    0% {
+        transform: translate(0, 50px) rotate(0deg) scale(0.3);
+        opacity: 0;
+    }
+    20% {
+        opacity: 0.6;
+    }
+    50% {
+        transform: translate(100px, -40vh) rotate(180deg) scale(1);
+    }
+    80% {
+        opacity: 0.4;
+    }
+    100% {
+        transform: translate(250px, -110vh) rotate(360deg) scale(0.6);
+        opacity: 0;
+    }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 5px;
+    border: 2px solid #0f172a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #334155;
+}
+
+/* Input Focus Glow */
+input:focus, textarea:focus {
+    box-shadow: 0 0 15px rgba(14, 165, 233, 0.15);
+}

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InfinityStackz | Premium Web Solutions</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body class="font-sans antialiased min-h-screen flex flex-col">
+
+    <!-- Blossom Container -->
+    <div id="blossom-container"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center space-x-2 cursor-pointer" onclick="navigateTo('home')">
+                    <div class="w-8 h-8 bg-sky-500 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-layer-group text-white"></i>
+                    </div>
+                    <span class="text-xl font-bold tracking-tight text-white font-outfit">Infinity<span class="text-sky-500">Stackz</span></span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <button onclick="navigateTo('home')" class="nav-link py-2 hover:text-sky-400 transition-colors text-sm font-medium" data-page="home">Home</button>
+                    <button onclick="navigateTo('services')" class="nav-link py-2 hover:text-sky-400 transition-colors text-sm font-medium" data-page="services">Services</button>
+                    <button onclick="navigateTo('works')" class="nav-link py-2 hover:text-sky-400 transition-colors text-sm font-medium" data-page="works">Our Works</button>
+                    <button onclick="navigateTo('contact')" class="nav-link py-2 hover:text-sky-400 transition-colors text-sm font-medium" data-page="contact">Contact</button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-slate-300 hover:text-white">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-4 py-4 space-y-4">
+            <button onclick="navigateTo('home')" class="block w-full text-left py-2 hover:text-sky-400">Home</button>
+            <button onclick="navigateTo('services')" class="block w-full text-left py-2 hover:text-sky-400">Services</button>
+            <button onclick="navigateTo('works')" class="block w-full text-left py-2 hover:text-sky-400">Our Works</button>
+            <button onclick="navigateTo('contact')" class="block w-full text-left py-2 hover:text-sky-400">Contact</button>
+        </div>
+    </nav>
+
+    <main class="flex-grow pt-16">
+        <!-- HOME PAGE -->
+        <section id="page-home" class="page-content active relative pt-20 pb-20 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center">
+                    <div class="inline-block px-4 py-1.5 mb-12 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-400 font-medium text-sm tracking-widest uppercase">
+                        “Building Infinite Digital Possibilities.”
+                    </div>
+                    
+                    <div class="max-w-4xl mx-auto space-y-8 text-slate-300">
+                        <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-6 font-outfit leading-tight">
+                            Is your digital presence <span class="text-sky-500">holding you back?</span>
+                        </h1>
+                        <p class="text-lg md:text-xl leading-relaxed text-slate-400">
+                            Slow load times and outdated design don’t just look bad—they cost you customers every single day. Infinity Stackz eliminates these bottlenecks by building next-generation digital experiences that are fast, secure, and built to scale. 
+                        </p>
+                        <p class="text-lg md:text-xl leading-relaxed text-slate-400">
+                            We turn complex technical challenges into your greatest business opportunities, providing the high-performance foundation your brand needs to lead the market. Your digital transformation starts here.
+                        </p>
+                    </div>
+                    
+                    <div class="mt-14 flex flex-col sm:flex-row justify-center gap-6">
+                        <button onclick="navigateTo('works')" class="bg-sky-500 hover:bg-sky-600 text-white font-bold py-4 px-10 rounded-full transition-all transform hover:scale-105 shadow-lg shadow-sky-500/25">
+                            Explore Our Works
+                        </button>
+                        <button onclick="navigateTo('contact')" class="border border-sky-500/50 text-sky-500 hover:bg-sky-500/10 font-bold py-4 px-10 rounded-full transition-all backdrop-blur-sm">
+                            Start Your Project
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mt-24 grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="glass-card p-10 rounded-3xl border-slate-700/50 hover:border-sky-500/50 transition-all hover:-translate-y-2">
+                        <div class="w-14 h-14 bg-sky-500/10 rounded-2xl flex items-center justify-center text-sky-500 mb-6">
+                            <i class="fas fa-rocket text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-white">Fast & Scalable</h3>
+                        <p class="text-slate-400 leading-relaxed">Every business deserves a powerful digital foundation. Our mission is to help brands scale confidently in the digital world through innovative development and modern stacks.</p>
+                    </div>
+                    <div class="glass-card p-10 rounded-3xl border-slate-700/50 hover:border-sky-500/50 transition-all hover:-translate-y-2">
+                        <div class="w-14 h-14 bg-sky-500/10 rounded-2xl flex items-center justify-center text-sky-500 mb-6">
+                            <i class="fas fa-laptop-code text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-white">Robust Tech Stack</h3>
+                        <p class="text-slate-400 leading-relaxed">Leveraging industry leaders like Next.js, PHP, and MongoDB to build architectures that are secure, responsive, and performance-driven.</p>
+                    </div>
+                    <div class="glass-card p-10 rounded-3xl border-slate-700/50 hover:border-sky-500/50 transition-all hover:-translate-y-2">
+                        <div class="w-14 h-14 bg-sky-500/10 rounded-2xl flex items-center justify-center text-sky-500 mb-6">
+                            <i class="fas fa-lightbulb text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-white">Limitless Creativity</h3>
+                        <p class="text-slate-400 leading-relaxed">Transforming complex ideas into clean user experiences through modern technology stacks and forward-thinking design philosophies.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-0">
+                <div class="absolute top-20 left-1/4 w-64 h-64 bg-sky-500/20 rounded-full blur-[100px]"></div>
+                <div class="absolute bottom-20 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px]"></div>
+            </div>
+        </section>
+
+        <!-- SERVICES PAGE -->
+        <section id="page-services" class="page-content py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-4 text-white font-outfit">Our Technology <span class="text-sky-500">Expertise</span></h2>
+                    <p class="text-slate-400 max-w-2xl mx-auto">We use high-performance stacks to deliver responsive, secure, and optimized web solutions.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="blue-gradient border border-slate-700 p-10 rounded-3xl group hover:border-sky-500 transition-all duration-300">
+                        <div class="w-16 h-16 bg-sky-500/20 rounded-2xl flex items-center justify-center text-sky-500 text-2xl mb-6 group-hover:bg-sky-500 group-hover:text-white transition-all">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-white">Frontend Excellence</h3>
+                        <p class="text-slate-400 mb-6">Building visually powerful and responsive interfaces using the most efficient modern frameworks.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-slate-800 border border-slate-700 px-3 py-1 rounded text-sky-400 text-xs font-bold">NEXT.JS</span>
+                            <span class="bg-slate-800 border border-slate-700 px-3 py-1 rounded text-sky-400 text-xs font-bold">REACT</span>
+                            <span class="bg-slate-800 border border-slate-700 px-3 py-1 rounded text-sky-400 text-xs font-bold">TAILWIND CSS</span>
+                        </div>
+                    </div>
+                    <div class="blue-gradient border border-slate-700 p-10 rounded-3xl group hover:border-sky-500 transition-all duration-300">
+                        <div class="w-16 h-16 bg-sky-500/20 rounded-2xl flex items-center justify-center text-sky-500 text-2xl mb-6 group-hover:bg-sky-500 group-hover:text-white transition-all">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-white">Backend & Infrastructure</h3>
+                        <p class="text-slate-400 mb-6">Secure, robust architectures that handle data efficiently and scale confidently as your brand grows.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-slate-800 border border-slate-700 px-3 py-1 rounded text-sky-400 text-xs font-bold">PHP</span>
+                            <span class="bg-slate-800 border border-slate-700 px-3 py-1 rounded text-sky-400 text-xs font-bold">MONGODB</span>
+                            <span class="bg-slate-800 border border-slate-700 px-3 py-1 rounded text-sky-400 text-xs font-bold">NODE.JS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- OUR WORKS PAGE -->
+        <section id="page-works" class="page-content py-20 bg-slate-900/30">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="mb-16">
+                    <h2 class="text-3xl font-bold mb-4 border-l-4 border-sky-500 pl-4 text-white">Digital Portfolio</h2>
+                    <p class="text-slate-400">Transforming ideas into high-performance websites.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+                    <!-- Project 1 -->
+                    <div class="glass-card rounded-2xl overflow-hidden group hover:border-sky-500/50 transition-all">
+                        <div class="h-56 bg-slate-800 overflow-hidden relative">
+                            <img src="assets/project1.png" alt="E-commerce Project" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-60"></div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-white">Nexus E-Commerce</h3>
+                            <p class="text-slate-400 text-sm mb-4">High-performance shopping built with Next.js and MongoDB backend.</p>
+                            <div class="flex items-center text-sky-400 text-xs font-bold">
+                                <span>VIEW DETAILS</span>
+                                <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 2 -->
+                    <div class="glass-card rounded-2xl overflow-hidden group hover:border-sky-500/50 transition-all">
+                        <div class="h-56 bg-slate-800 overflow-hidden relative">
+                            <img src="assets/project2.png" alt="SaaS Dashboard" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-60"></div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-white">CloudMetrics SaaS</h3>
+                            <p class="text-slate-400 text-sm mb-4">Enterprise analytics platform powered by a robust PHP infrastructure.</p>
+                            <div class="flex items-center text-sky-400 text-xs font-bold">
+                                <span>VIEW DETAILS</span>
+                                <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 3 -->
+                    <div class="glass-card rounded-2xl overflow-hidden group hover:border-sky-500/50 transition-all">
+                        <div class="h-56 bg-slate-800 overflow-hidden relative">
+                            <img src="assets/project3.png" alt="Creative Agency" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-60"></div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-white">Nova Studio</h3>
+                            <p class="text-slate-400 text-sm mb-4">A visually powerful agency site with seamless React interactions.</p>
+                            <div class="flex items-center text-sky-400 text-xs font-bold">
+                                <span>VIEW DETAILS</span>
+                                <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feedback Section -->
+                <div class="max-w-4xl mx-auto glass-card rounded-3xl p-8 md:p-12 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-10">
+                        <i class="fas fa-quote-right text-6xl text-sky-500"></i>
+                    </div>
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold text-white">Client Feedback</h3>
+                        <p class="text-slate-400">Help us keep building infinite possibilities.</p>
+                    </div>
+                    
+                    <form id="feedbackForm" class="space-y-4">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <input type="text" name="name" placeholder="Your Name" class="bg-slate-800/50 border border-slate-700 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-sky-500 w-full text-white" required>
+                            <input type="text" name="project_name" placeholder="Project Name" class="bg-slate-800/50 border border-slate-700 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-sky-500 w-full text-white" required>
+                        </div>
+                        <div class="flex items-center space-x-4 p-4 bg-slate-800/30 rounded-xl border border-slate-700">
+                            <span class="text-sm font-medium text-slate-300">Rating:</span>
+                            <div class="flex text-yellow-500 space-x-1" id="starRating">
+                                <i class="fas fa-star cursor-pointer hover:scale-110 transition-transform" data-val="1"></i>
+                                <i class="fas fa-star cursor-pointer hover:scale-110 transition-transform" data-val="2"></i>
+                                <i class="fas fa-star cursor-pointer hover:scale-110 transition-transform" data-val="3"></i>
+                                <i class="fas fa-star cursor-pointer hover:scale-110 transition-transform" data-val="4"></i>
+                                <i class="fas fa-star cursor-pointer hover:scale-110 transition-transform" data-val="5"></i>
+                            </div>
+                            <input type="hidden" name="rating" id="ratingInput" value="5">
+                        </div>
+                        <textarea name="message" rows="4" placeholder="Your experience working with us..." class="bg-slate-800/50 border border-slate-700 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-sky-500 w-full text-white" required></textarea>
+                        <button type="submit" class="w-full bg-sky-500 hover:bg-sky-600 text-white font-bold py-4 rounded-xl transition-all shadow-lg shadow-sky-500/20">
+                            Submit Feedback
+                        </button>
+                    </form>
+                    <div id="feedbackSuccess" class="hidden text-center mt-4 p-6 bg-green-500/10 text-green-400 rounded-xl border border-green-500/30">
+                        <i class="fas fa-check-circle text-2xl mb-2 block"></i>
+                        Thank you! Your feedback has been received.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT PAGE -->
+        <section id="page-contact" class="page-content py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <h2 class="text-5xl font-extrabold mb-6 text-white font-outfit">Let's build something <span class="text-sky-500">amazing</span> together.</h2>
+                        <p class="text-slate-400 mb-10 text-lg leading-relaxed">Every business deserves a powerful digital foundation. Reach out to start scaling today.</p>
+                        
+                        <div class="space-y-8">
+                            <div class="flex items-center space-x-6 group">
+                                <div class="w-14 h-14 bg-sky-500/10 rounded-2xl flex items-center justify-center text-sky-500 group-hover:bg-sky-500 group-hover:text-white transition-all">
+                                    <i class="fas fa-envelope text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-slate-500 font-bold uppercase tracking-wider mb-1">Email Us</p>
+                                    <p class="text-xl font-medium text-white group-hover:text-sky-400 transition-colors">infinitystackz11.11@gmail.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="blue-gradient p-10 rounded-[2.5rem] border border-slate-700 shadow-2xl relative">
+                        <div class="absolute -top-4 -right-4 w-20 h-20 bg-sky-500/10 rounded-full blur-2xl"></div>
+                        <h3 class="text-2xl font-bold mb-8 text-white">Send us a message</h3>
+                        <form id="contactForm" class="space-y-5">
+                            <div class="group">
+                                <input type="text" name="name" placeholder="Full Name" class="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-5 py-4 focus:outline-none focus:border-sky-500 text-white transition-colors" required>
+                            </div>
+                            <div class="group">
+                                <input type="email" name="email" placeholder="Email Address" class="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-5 py-4 focus:outline-none focus:border-sky-500 text-white transition-colors" required>
+                            </div>
+                            <div class="group">
+                                <textarea name="message" rows="4" placeholder="Tell us about your project..." class="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-5 py-4 focus:outline-none focus:border-sky-500 text-white transition-colors" required></textarea>
+                            </div>
+                            <button type="submit" id="contactSubmit" class="w-full bg-white text-slate-900 font-black py-5 rounded-xl hover:bg-sky-500 hover:text-white transition-all flex items-center justify-center space-x-3 uppercase tracking-widest text-sm">
+                                <span>SEND MESSAGE</span>
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                            <div id="contactStatus" class="hidden text-center p-4 rounded-xl text-sm font-bold"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 py-16 border-t border-slate-900 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left">
+            <div class="grid md:grid-cols-3 gap-12 items-center">
+                <div class="flex flex-col items-center md:items-start space-y-4">
+                    <div class="flex items-center space-x-2 cursor-pointer" onclick="navigateTo('home')">
+                        <div class="w-10 h-10 bg-sky-500 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-layer-group text-white"></i>
+                        </div>
+                        <span class="font-bold text-white text-2xl font-outfit tracking-tighter">InfinityStackz</span>
+                    </div>
+                    <p class="text-slate-500 italic">“Building Infinite Digital Possibilities.”</p>
+                </div>
+                
+                <div class="flex justify-center space-x-8">
+                    <a href="#" class="text-slate-500 hover:text-white transition-colors">Privacy</a>
+                    <a href="#" class="text-slate-500 hover:text-white transition-colors">Terms</a>
+                    <a href="#" class="text-slate-500 hover:text-white transition-colors">Security</a>
+                </div>
+                
+                <div class="flex justify-center md:justify-end space-x-6 text-slate-500">
+                    <a href="#" class="w-12 h-12 bg-slate-900 rounded-full flex items-center justify-center hover:text-sky-500 hover:bg-slate-800 transition-all border border-slate-800"><i class="fab fa-twitter text-lg"></i></a>
+                    <a href="#" class="w-12 h-12 bg-slate-900 rounded-full flex items-center justify-center hover:text-sky-500 hover:bg-slate-800 transition-all border border-slate-800"><i class="fab fa-github text-lg"></i></a>
+                    <a href="#" class="w-12 h-12 bg-slate-900 rounded-full flex items-center justify-center hover:text-sky-500 hover:bg-slate-800 transition-all border border-slate-800"><i class="fab fa-linkedin text-lg"></i></a>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-slate-900/50 text-center text-slate-600 text-sm">
+                &copy; 2026 InfinityStackz. Built with excellence.
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
